@@ -42,6 +42,8 @@ For the aliases to work with jest you need to set the 'moduleNameMapper' option.
     }
     ...
 
+**Pro tip:** If you are using webpack aliases, the above aliases also have to be set for it to work with jest and babel.
+
 ## 3. Webstorm tips & tricks
 
 If you are using Webstorm as IDE the following ensures Webstorm plays nicely with jest and babel.
