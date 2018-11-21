@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev:test": "jest --watch",
-    "debug:jest": "jest --debug"
+    "test:dev": "jest --watch",
+    "test:debug": "jest --debug",
+    "test:clear": "jest --clearCache && rm -rf dist",
+    "test:config": "jest --showConfig"
   },
   "keywords": [
     "jest",
