@@ -1,11 +1,9 @@
 ## jest-test
 > Test repository to test jest mocking and some other tips & tricks I'm documenting for myself that might be of use to others.
 
-**IMPORTANT**
+**IMPORTANT:** If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub.
 
-If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub.
-
-In addition to testing mocking it demonstrates a couple of other things:
+In addition to testing mocking this repository demonstrates a couple of other things:
 1) Separate config files
 2) Setting aliases
 3) Webstorm tips & tricks
@@ -19,7 +17,7 @@ To keep the configuration clear it is advisable to not put the jest and babel co
 
 ## 2. Setting aliases
 
-With the babel 'module_resolver' plugin you can set aliases for directories, so that you do not have to use complicated import paths, i.e. ../../src/<module-name>.
+With the babel 'module_resolver' plugin you can set aliases for directories so that you do not have to use complicated import paths, i.e. ../../src/<module-name>.
 
     // babel.config.js
     ...
@@ -33,7 +31,7 @@ With the babel 'module_resolver' plugin you can set aliases for directories, so 
     ]
     ... 
 
-For the aliases to work with jest you need to set the 'moduleNameMapper' option. The aliases must match the aliases defined in the babel.config.js file.
+For the aliases to work with jest you must set the same aliases with the 'moduleNameMapper' option. The aliases must match the aliases defined in the babel.config.js file.
 
     // jest.config.js
     ...
@@ -42,11 +40,11 @@ For the aliases to work with jest you need to set the 'moduleNameMapper' option.
     }
     ...
 
-**Pro tip:** If you are using webpack aliases, the above aliases also have to be set for it to work with jest and babel.
+**Pro tip:** If you are using webpack aliases, the above babel and jest aliases also have to be set for them to work correctly.
 
 ## 3. Webstorm tips & tricks
 
-If you are using Webstorm as IDE the following ensures Webstorm plays nicely with jest and babel.
+If you are using the Webstorm IDE the following ensures Webstorm plays nicely with jest and babel.
 
 ### Get ride of annoying unresolved jest variables
 
@@ -69,10 +67,11 @@ Execute the following steps.
 3) Go to File > Settings... > Tools > File watchers
 4) Click '+'
 5) Select 'babel'
-6) Select the babel executable [1] (Program) it is located in '<project-dir>/node_modules/.bin' and it is called 'Babel'
+6) Select the babel executable [1] it is located in '<project-dir>/node_modules/.bin' and it is called 'Babel'
 7) Remove '--presets env' from the Arguments [2] or alternatively change it to '--presets @babel/env'
 
-[1] The executable is part of '@babel/cli'.
+[1] The executable is part of '@babel/cli', so it needs to be installed.
+
 [2] If you remove '--presets env' the following must be set in babel.config.js.
 
     // babel.config.js
@@ -84,11 +83,11 @@ Execute the following steps.
     }
     ...
 
-See this [blog post](https://blog.jetbrains.com/webstorm/2015/05/ecmascript-6-in-webstorm-transpiling/) for more information.
+See this [blog post](https://blog.jetbrains.com/webstorm/2015/05/ecmascript-6-in-webstorm-transpiling/) for more information about File Watchers.
 
-### Tests run from commandline not in sync with tests run with Webstorm
+### Tests run from commandline failing, tests run with Webstorm passing
 
-It can happen that somehow the tests in Webstorm all pass, but when you run them from the commandline they fail. Somehow the dist directory is getting out of sync. This can be fixed easily by clearing the jest cache and deleting the dist directory. Run the following command to do this automatically.
+It can happen that the tests in Webstorm all pass, but when you run from the commandline they fail. Somehow the dist directory is getting out of sync. This can be fixed easily by clearing the jest cache and deleting the dist directory. Run the following command to do this automatically.
 
     npm run test:clean
 
