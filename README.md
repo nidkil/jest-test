@@ -1,17 +1,18 @@
 ## jest-test
-> Test repository to test jest mocking and some other tips & tricks. I'm documenting for myself that might be of use to others.
+> Test repository to test jest mocking and some other tips & tricks I'm documenting for myself that might be of use to others.
 
-IMPORTANT
-If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this jest [issue](https://github.com/facebook/jest/issues/7395) on GitHub.
+**IMPORTANT**
 
-It also shows a couple of other tricks:
+If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub.
+
+In addition to testing mocking it demonstrates a couple of other things:
 1) Separate config files
 2) Setting aliases
 3) Webstorm tips & tricks
 
 ## 1. Separate config files
 
-To keep the configuration clear it is advisable to not put the jest and babel in package.json. You can use the following files to setup there respective configuration.
+To keep the configuration clear it is advisable to not put the jest and babel configuration in package.json. You can use the following files to setup there respective configuration in separate config files.
 
 - jest: jest.config.js
 - babel: babel.config.js 
