@@ -85,3 +85,13 @@ Execute the following steps.
     ...
 
 See this [blog post](https://blog.jetbrains.com/webstorm/2015/05/ecmascript-6-in-webstorm-transpiling/) for more information.
+
+### Tests run from commandline not in sync with tests run with Webstorm
+
+It can happen that somehow the tests in Webstorm all pass, but when you run them from the commandline they fail. Somehow the dist directory is getting out of sync. This can be fixed easily by clearing the jest cache and deleting the dist directory. Run the following command to do this automatically.
+
+    npm run test:clean
+
+No run the tests again and they should pass.
+
+    npm run test
