@@ -2,12 +2,19 @@
 ## jest-test
 > Test repository to test jest mocking and some other tips & tricks I'm documenting for myself that might be of use to others.
 
-**IMPORTANT:** If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub. This should be fixed in the next major release of jest (v24?) when the dependency on babel 6 is dropped.
+**IMPORTANT:** If you are using node version 10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub. You can either switch to yarn or downgrade node to version 8. This should be fixed in the next major release of jest (v24?) when the dependency on babel 6 is dropped.
+
+I setup this repository to test jest mocking and other test principles. I will add to this repository as my projects require.
+
+The tests in this repository cover the following:
+1) Normal basic test to ensure everything is setup correctly (test/sum.spec.js)
+2) Mocking modules (test/modules)
+3) Mocking classes which is split up into classes as default exports (test/classes/default) and classes as named exports (test/classes/named)
 
 In addition to testing mocking this repository demonstrates a couple of other things:
 1) [Separate config files](#1-Separate-config-files)
 2) [Setting aliases](#2-Setting-aliases)
-3) [Running tests independently](#3-Running-tests-independently)
+3) [Running groups of tests](#3-Running-groups-of-tests)
 4) [Webstorm tips & tricks](#4-Webstorm-tips--tricks)
 
 ## 1. Separate config files
@@ -44,15 +51,15 @@ For the aliases to work with jest you must set the same aliases with the 'module
 
 **Pro tip:** If you are using webpack aliases, the above babel and jest aliases also have to be set for them to work correctly.
 
-## 3. Running tests independently
+## 3. Running groups of tests
 
-It can be useful to group tests together and be able to run them independently. Groups could be smoke tests, unit tests and integration tests. This is easy to accomplish by using separate scripts and jest configuration files.
+It can be useful to group tests together and run them independently. Groups could be smoke tests, unit tests and integration tests. This is easy to accomplish by using separate scripts, jest configuration files and naming convention for test files.
 
-The tests in this repo have been grouped by class mock tests and module mock tests. This is how it is accomplished.
+The tests in this repo have been grouped by class tests and module tests. This is how it is accomplished.
 
-For each group of tests you create a separate configuration file. This configuration file inherits the default `jest.config.jest` configuration file and at least needs to change the `testRegex` option to select the test files that must be tested. The selection is accomplished by following a specific naming convention for test files. All test files in a group must end with this specific naming convention, i.e. the class mock tests end with: `.mock.classes.spec.js`.
+For each group of tests you create a separate configuration file. This configuration file inherits the default `jest.config.jest` configuration file and at least changes the `testRegex` option to select the test files that must be tested. The selection is accomplished by following a naming convention for test files. All test files in a group must end with a specific naming convention, i.e. the class tests end with: `.mock.classes.spec.js`.
 
-Here is the configuration file for the class mock tests.
+Here is the configuration file for the class tests.
 
     // jest.config.mock.classes.js
     const config = require('./jest.config');
@@ -62,7 +69,7 @@ Here is the configuration file for the class mock tests.
     console.log(' ---------- Running classes mock tests ----------')
     module.exports = config
 
-To run a specifc group of tests you have to call jest with the right configuration file. For convience you can add the call to the scripts in the `package.json` file.
+To run a specific group of tests you have to call jest with the right configuration file. For convenience you can add the call to the scripts in the `package.json` file.
 
     // package.json
     ...

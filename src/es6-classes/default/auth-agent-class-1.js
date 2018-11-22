@@ -1,4 +1,4 @@
-export default class AuthAgentClass {
+export default class AuthAgentClass1 {
   constructor() {
     this.foo = 'bar';
   }
