@@ -1,12 +1,14 @@
+
 ## jest-test
 > Test repository to test jest mocking and some other tips & tricks I'm documenting for myself that might be of use to others.
 
 **IMPORTANT:** If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub.
 
 In addition to testing mocking this repository demonstrates a couple of other things:
-1) Separate config files
-2) Setting aliases
-3) Webstorm tips & tricks
+1) [Separate config files](#1.-Separate-config-files)
+2) [Setting aliases](#2.-Setting-aliases)
+3) [Running tests independently](#3.-Running-tests-independently)
+4) [Webstorm tips & tricks](#4.-Webstorm-tips-&-tricks)
 
 ## 1. Separate config files
 
@@ -42,7 +44,43 @@ For the aliases to work with jest you must set the same aliases with the 'module
 
 **Pro tip:** If you are using webpack aliases, the above babel and jest aliases also have to be set for them to work correctly.
 
-## 3. Webstorm tips & tricks
+## 3. Running tests independently
+
+It can be useful to group tests together and be able to run them independently. Groups could be smoke tests, unit tests and integration tests. This is easy to accomplish by using separate scripts and jest configuration files.
+
+The tests in this repo have been grouped by class mock tests and module mock tests. This is how it is accomplished.
+
+For each group of tests you create a separate configuration file. This configuration file inherits the default `jest.config.jest` configuration file and at least needs to change the `testRegex` option to select the test files that must be tested. The selection is accomplished by following a specific naming convention for test files. All test files in a group must end with this specific naming convention, i.e. the class mock tests end with: `.mock.classes.spec.js`.
+
+Here is the configuration file for the class mock tests.
+
+    // jest.config.mock.classes.js
+    const config = require('./jest.config');
+    // Overriding the testRegex option to select files that end with the specific naming
+    // convention: <filename>.mock.classes.spec.js
+    config.testRegex = ".mock.classes.spec\\.js$"
+    console.log(' ---------- Running classes mock tests ----------')
+    module.exports = config
+
+To run a specifc group of tests you have to call jest with the right configuration file. For convience you can add the call to the scripts in the `package.json` file.
+
+    // package.json
+    ...
+    "scripts": {
+      ...
+      "test:modules": "jest -c jest.config.mock.modules.js",
+      "test:classes": "jest -c jest.config.mock.classes.js",
+      ...
+    },
+    ...
+
+Now all you need to do to run a specific group of tests is call the right script.
+
+    npm run test:classes
+
+That's it! Pretty cool, right?
+
+## 4. Webstorm tips & tricks
 
 If you are using the Webstorm IDE the following ensures Webstorm plays nicely with jest and babel.
 

@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:modules": "jest -c jest.config.mock.modules.js",
+    "test:classes": "jest -c jest.config.mock.classes.js",
     "test:dev": "jest --watch",
     "test:debug": "jest --debug",
     "test:clear": "jest --clearCache && rm -rf dist",
