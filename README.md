@@ -91,6 +91,22 @@ That's it! Pretty cool, right?
 
 If you are using the Webstorm IDE the following ensures Webstorm plays nicely with jest and babel.
 
+### Getting Webstorm to recognize aliases
+
+If you setup aliases for jest and babel Webstorm will not understand them by default. A trick to help Webstorm understand them is to define a webpack configuration file (webpack.config.js) that defines the same aliases.
+
+    const path = require('path')
+    
+    module.exports = {
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, 'src')
+        }
+      }
+    };
+
+And voila like magic Webstorm now understands the aliases and you can navigate them with ctrl+b. 
+
 ### Get ride of annoying unresolved jest variables
 
 Execute the following steps:
