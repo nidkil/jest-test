@@ -2,14 +2,14 @@
 ## jest-test
 > Test repository to test jest mocking and some other tips & tricks I'm documenting for myself that might be of use to others.
 
-**IMPORTANT:** If you are using node version 10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub. You can either switch to yarn or downgrade node to version 8. This should be fixed in the next major release of jest (v24?) when the dependency on babel 6 is dropped.
-
 I setup this repository to test jest mocking and other test principles. I will add to this repository as my projects require.
 
 The tests in this repository cover the following:
 1) Normal basic test to ensure everything is setup correctly (test/sum.spec.js)
 2) Mocking modules (test/modules)
 3) Mocking classes which is split up into classes as default exports (test/classes/default) and classes as named exports (test/classes/named)
+
+> **WARNING:** If you are using jest version 23 with node version 10 and npm then this repository probably will not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub. You can either switch to yarn or downgrade node to version 8. This should be fixed in the next major release of jest (v24?) when the dependency on babel 6 is dropped.
 
 In addition to testing mocking this repository demonstrates a couple of other things:
 1) [Separate config files](#1-Separate-config-files)
