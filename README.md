@@ -5,10 +5,10 @@
 **IMPORTANT:** If you are using node v10 and npm then this repository will probably not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub.
 
 In addition to testing mocking this repository demonstrates a couple of other things:
-1) [Separate config files](#1.-Separate-config-files)
-2) [Setting aliases](#2.-Setting-aliases)
-3) [Running tests independently](#3.-Running-tests-independently)
-4) [Webstorm tips & tricks](#4.-Webstorm-tips-&-tricks)
+1) [Separate config files](#1-Separate-config-files)
+2) [Setting aliases](#2-Setting-aliases)
+3) [Running tests independently](#3-Running-tests-independently)
+4) [Webstorm tips & tricks](#4-Webstorm-tips-&-tricks)
 
 ## 1. Separate config files
 
