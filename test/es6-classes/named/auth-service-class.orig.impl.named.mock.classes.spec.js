@@ -61,4 +61,10 @@ describe('Testing mocking a class that is a named export in a module', () => {
     expect(authAgent.AuthAgentClass2).toHaveBeenCalledTimes(1);
     expect(authServiceClass2.login()).toBe(originalValue);
   });
+
+  test('that the default mock with implementation is restored after the one time implementation has completed', () => {
+    const authServiceClass2 = new AuthServiceClass2();
+    expect(authAgent.AuthAgentClass2).toHaveBeenCalledTimes(1);
+    expect(authServiceClass2.login()).toBe(defaultValue);
+  });
 });
