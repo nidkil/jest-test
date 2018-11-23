@@ -6,6 +6,6 @@ export default class AuthServiceClass1 {
   }
 
   login(popup = true) {
-    this.agent.login(popup);
+    return this.agent.login(popup);
   }
 }

@@ -8,6 +8,7 @@ The tests in this repository cover the following:
 1) Normal basic test to ensure everything is setup correctly (test/sum.spec.js)
 2) Mocking modules (test/modules)
 3) Mocking classes which is split up into classes as default exports (test/classes/default) and classes as named exports (test/classes/named)
+4) Restoring the original implementation for a single call (test/classes/named/auth-service-class.orig.impl.named.mock.classes.spec.js)
 
 > **WARNING:** If you are using jest version 23 with node version 10 and npm then this repository probably will not work for you. For more information please refer to this [jest issue](https://github.com/facebook/jest/issues/7395) on GitHub. You can either switch to yarn or downgrade node to version 8. This should be fixed in the next major release of jest (v24?) when the dependency on babel 6 is dropped.
 

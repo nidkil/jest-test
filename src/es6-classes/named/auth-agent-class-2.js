@@ -6,7 +6,7 @@ export class AuthAgentClass2 {
   }
 
   login(popup = true) {
-    if (popup) console.log('Using popup');
-    else console.log('Using redirect');
+    if (popup) return 'popup';
+    else return 'redirect';
   }
 }

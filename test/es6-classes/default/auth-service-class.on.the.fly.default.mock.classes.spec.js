@@ -40,7 +40,7 @@ describe('Testing mocking a class that is a default export in a module', () => {
     expect(() => authServiceClass1.login()).toThrow();
   });
 
-  test('that the class we are testing called a method on the class it depends on with the specified', () => {
+  test('that the class we are testing called a method on the class it depends on with the specified value', () => {
     const authServiceClass1 = new AuthServiceClass1();
     expect(AuthAgentClass1).toHaveBeenCalledTimes(1);
 
